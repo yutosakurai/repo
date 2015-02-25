@@ -1,0 +1,54 @@
+# pandocで.mdを.htmlファイルへと変換する  
+
+## "pandoc"の導入  
+
+### pandocをインストールする
+	brew install pandoc
+
+*homebrew* を使って *pandoc* をインストールする
+	
+### pandocがインストールされているか確認
+	pandoc <適当なマークダウンファイル>.md -s -o <適当なマークダウンファイル>.html
+
+マークダウンと同階層にhtmlファイルが生成されていればOK
+	
+## pandocのテンプレート準備
+
+**そのままではなんだか味気ないのでgithub風にcssでアレンジ**
+	
+まずは
+	
+	pandoc --version
+	
+pandocのデフォルトユーザデータディレクトリを確認
+	
+	Default user data directory: /Users/ユーザー名/.pandoc
+	
+標準では `.pandoc` が存在していないためつくる
+	
+	mkdir .pandoc
+	
+また、テンプレートファイルは `.pandoc/templates` 内に存在することになっているので
+	
+	cd ~/.pandoc
+	mkdir templates
+	
+`.pandoc` ディレクトリ内に `templates` ディレクトリを作成
+ここに、以下で作成したテンプレートを置く
+
+### テンプレートファイルの作成
+
+**現在のテンプレートのhtmlを確認**
+
+	pandoc -D html5
+	
+デフォルトのテンプレートの中身が、以下のようにそのまま表示されるので、全て選択しコピー
+	
+	<!DOCTYPE html>
+	<html$if(lang)$ lang="$lang$"$endif$>
+	<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="pandoc">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	...
+
