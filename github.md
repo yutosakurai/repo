@@ -131,4 +131,26 @@ txtファイルを作成(ファイル名はなんでもOK)
 
 で確認し、`Nothing to commit`と表示されていればOK
 
+### githubを使おう
 
+#### レポジトリの作成
+
+githubにログインし、新しくレポジトリを作成する
+
+	git remote add origin リモート用のアドレス
+	git push -u origin master
+
+このような文章が表示されていると思うので、それをそのままターミナルにコピペする  
+
+pushおわり。
+
+
+### 次回から
+
+流れとしては  
+
+	git add ファイル名
+	git commit -m "コメント"
+	git push -u origin master
+
+を繰り返すだけ
